@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:status_display/data/status.dart';
 import 'package:status_display/inspector.dart';
 import 'package:status_display/utils/formating.dart';
+import 'package:status_display/widgets/common_widgets.dart';
 import 'package:status_display/widgets/inspectable.dart';
 import 'package:status_display/widgets/inspector_widgets.dart';
+import 'package:status_display/widgets/status_table.dart';
 
 enum RunningStatus {
   running("Running"),
@@ -56,13 +58,10 @@ abstract class CommandData extends InspectableData {
 
   List<Widget> getBasicDetails() {
     return [
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Command Status",
-          InspectorStatusIndicator.status(
-            status: status,
-            label: status.toString(),
-          ),
+          SmallStatusIndicator.status(status: status, label: status.toString()),
           null,
         ),
         InspectorProperty(
@@ -119,10 +118,10 @@ class IntakeManagerData extends CommandData {
   @override
   List<Widget> getAdvancedDetails() {
     return [
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Elev At Bottom",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: elevAtBottom,
             label: formatBoolAsString(elevAtBottom),
           ),
@@ -130,7 +129,7 @@ class IntakeManagerData extends CommandData {
         ),
         InspectorProperty(
           "Has Coral",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: hasCoral,
             label: formatBoolAsString(hasCoral),
           ),
@@ -138,7 +137,7 @@ class IntakeManagerData extends CommandData {
         ),
         InspectorProperty(
           "Running Intake",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: runningIntake,
             label: formatBoolAsString(runningIntake),
           ),
@@ -176,10 +175,10 @@ class LimelightManagerData extends CommandData {
   @override
   List<Widget> getAdvancedDetails() {
     return [
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Reef Estimated",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: reefEstimated,
             label: formatBoolAsString(reefEstimated),
           ),
@@ -187,7 +186,7 @@ class LimelightManagerData extends CommandData {
         ),
         InspectorProperty(
           "Funnel Estimated",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: funnelEstimated,
             label: formatBoolAsString(funnelEstimated),
           ),
@@ -241,7 +240,7 @@ class LEDManagerData extends CommandData {
   @override
   List<Widget> getAdvancedDetails() {
     return [
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Current Pattern",
           InspectorText(formatStringAsString(currentPattern)),
@@ -249,7 +248,7 @@ class LEDManagerData extends CommandData {
         ),
         InspectorProperty(
           "Disabled",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: disabled,
             label: formatBoolAsString(disabled),
           ),
@@ -257,7 +256,7 @@ class LEDManagerData extends CommandData {
         ),
         InspectorProperty(
           "Teleop",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: teleop,
             label: formatBoolAsString(teleop),
           ),
@@ -265,7 +264,7 @@ class LEDManagerData extends CommandData {
         ),
         InspectorProperty(
           "Endgame",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: endgame,
             label: formatBoolAsString(endgame),
           ),
@@ -273,7 +272,7 @@ class LEDManagerData extends CommandData {
         ),
         InspectorProperty(
           "Has Coral",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: hasCoral,
             label: formatBoolAsString(hasCoral),
           ),
@@ -281,7 +280,7 @@ class LEDManagerData extends CommandData {
         ),
         InspectorProperty(
           "Aligned To Branch",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: alignedToBranch,
             label: formatBoolAsString(alignedToBranch),
           ),

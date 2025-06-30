@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:status_display/data/hardware_data.dart';
 import 'package:status_display/data/status.dart';
 import 'package:status_display/utils/formating.dart';
+import 'package:status_display/widgets/common_widgets.dart';
 import 'package:status_display/widgets/inspector_widgets.dart';
+import 'package:status_display/widgets/status_table.dart';
 
 class CANCoderFaults {
   bool badMagnet,
@@ -101,7 +103,7 @@ class CANCoderData extends HardwareData {
   @override
   List<Widget> getAdvancedDetails() {
     return [
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty("CAN ID", InspectorText(canID.toString()), null),
         InspectorProperty(
           "Firmware",
@@ -109,7 +111,7 @@ class CANCoderData extends HardwareData {
           _firmwareVersionStatus,
         ),
       ]),
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Absolute Position",
           InspectorText(formatRotationsAsString(absolutePosition)),
@@ -127,17 +129,17 @@ class CANCoderData extends HardwareData {
         ),
         InspectorProperty(
           "Magnet Health",
-          InspectorStatusIndicator.canCoderMagnetHealth(
+          SmallStatusIndicator.canCoderMagnetHealth(
             health: magnetHealth,
             label: formatStringAsString(magnetHealth?.name),
           ),
           _magnetHealthStatus,
         ),
       ]),
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Bad Magnet",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.badMagnet,
             label: formatBoolAsString(faults?.badMagnet),
           ),
@@ -147,7 +149,7 @@ class CANCoderData extends HardwareData {
         ),
         InspectorProperty(
           "Boot During Enable",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.bootDuringEnable,
             label: formatBoolAsString(faults?.bootDuringEnable),
           ),
@@ -157,7 +159,7 @@ class CANCoderData extends HardwareData {
         ),
         InspectorProperty(
           "Hardware",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.hardware,
             label: formatBoolAsString(faults?.hardware),
           ),
@@ -167,7 +169,7 @@ class CANCoderData extends HardwareData {
         ),
         InspectorProperty(
           "Undervoltage",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.undervoltage,
             label: formatBoolAsString(faults?.undervoltage),
           ),
@@ -177,7 +179,7 @@ class CANCoderData extends HardwareData {
         ),
         InspectorProperty(
           "Unlicensed Feature In Use",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.unlicensedFeatureInUse,
             label: formatBoolAsString(faults?.unlicensedFeatureInUse),
           ),

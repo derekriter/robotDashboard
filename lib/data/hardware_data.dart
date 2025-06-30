@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:status_display/data/status.dart';
 import 'package:status_display/inspector.dart';
 import 'package:status_display/utils/formating.dart';
+import 'package:status_display/widgets/common_widgets.dart';
 import 'package:status_display/widgets/inspectable.dart';
 import 'package:status_display/widgets/inspector_widgets.dart';
+import 'package:status_display/widgets/status_table.dart';
 
 abstract class HardwareData extends InspectableData {
   final String name; //eg. FL Drive
@@ -32,18 +34,15 @@ abstract class HardwareData extends InspectableData {
 
   List<Widget> getBasicDetails() {
     return [
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Hardware Status",
-          InspectorStatusIndicator.status(
-            status: status,
-            label: status.toString(),
-          ),
+          SmallStatusIndicator.status(status: status, label: status.toString()),
           null,
         ),
         InspectorProperty(
           "Connected",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: connected,
             label: formatBoolAsString(connected),
           ),

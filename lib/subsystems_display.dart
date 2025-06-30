@@ -7,11 +7,10 @@ import 'package:status_display/data/controller_data.dart';
 import 'package:status_display/data/hardware_data.dart';
 import 'package:status_display/data/status.dart';
 import 'package:status_display/data/subsystem_data.dart';
-import 'package:status_display/data/theme_data.dart';
 import 'package:status_display/widgets/autogrid.dart';
+import 'package:status_display/widgets/common_widgets.dart';
 import 'package:status_display/widgets/fading_scroll.dart';
 import 'package:status_display/widgets/inspectable.dart';
-import 'package:status_display/widgets/status_indicator.dart';
 
 class SubsystemsDisplayWidget extends StatelessWidget {
   const SubsystemsDisplayWidget({super.key});
@@ -100,10 +99,7 @@ class SubsystemCard extends StatelessWidget {
       detailsDisplay = [];
     } else {
       detailsDisplay = [
-        Divider(
-          color: themeData.colorScheme.onSecondaryContainer,
-          thickness: 0.25,
-        ),
+        CustomDivider(),
         ConstrainedBox(
           constraints: BoxConstraints(maxHeight: double.maxFinite),
           child: AutoGrid(
@@ -118,12 +114,9 @@ class SubsystemCard extends StatelessWidget {
                   return InspectableField(
                     data: data,
                     borderRadius: 4,
-                    child: StatusIndicator.status(
+                    child: SmallStatusIndicator.status(
                       status: detail.status,
-                      indicatorSize: 15,
-                      indicatorRadius: 4,
                       label: detail.name,
-                      labelStyle: bodySmall,
                       showBackground: true,
                     ),
                   );
@@ -133,23 +126,15 @@ class SubsystemCard extends StatelessWidget {
       ];
     }
 
-    return Container(
-      decoration: BoxDecoration(
-        color: themeData.colorScheme.secondaryContainer,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      padding: EdgeInsets.all(8),
+    return ContainerCard(
       child: Column(
         children: [
           InspectableField(
             data: subsystem.getInspectionData(),
             borderRadius: 8,
-            child: StatusIndicator.status(
+            child: LargeStatusIndicator.status(
               status: subsystem.status,
-              indicatorSize: 25,
-              indicatorRadius: 8,
               label: subsystem.name,
-              labelStyle: titleMedium,
             ),
           ),
           ...detailsDisplay,

@@ -3,6 +3,7 @@ import 'package:status_display/data/cancoder_data.dart';
 import 'package:status_display/data/robot_data.dart';
 import 'package:status_display/data/status.dart';
 import 'package:status_display/data/theme_data.dart';
+import 'package:status_display/widgets/common_widgets.dart';
 
 class StatusIndicator extends StatelessWidget {
   final Color _indicatorColor;
@@ -106,14 +107,7 @@ class StatusIndicator extends StatelessWidget {
               ),
             ],
           ),
-          Flexible(
-            child: Text(
-              label,
-              style: labelStyle,
-              softWrap: false,
-              overflow: TextOverflow.fade,
-            ),
-          ),
+          Flexible(child: FadingText(label, style: labelStyle)),
         ],
       ),
     );

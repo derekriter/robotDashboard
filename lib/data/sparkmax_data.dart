@@ -3,6 +3,9 @@ import 'package:status_display/data/hardware_data.dart';
 import 'package:status_display/data/status.dart';
 import 'package:status_display/utils/formating.dart';
 import 'package:status_display/widgets/inspector_widgets.dart';
+import 'package:status_display/widgets/status_table.dart';
+
+import '../widgets/common_widgets.dart';
 
 class SparkMaxFaults {
   bool can,
@@ -143,7 +146,7 @@ class SparkMaxData extends HardwareData {
   @override
   List<Widget> getAdvancedDetails() {
     return [
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty("CAN ID", InspectorText(canID.toString()), null),
         InspectorProperty(
           "Firmware",
@@ -151,7 +154,7 @@ class SparkMaxData extends HardwareData {
           _firmwareVersionStatus,
         ),
       ]),
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Output Voltage",
           InspectorText(formatVoltageAsString(outputVoltage)),
@@ -178,10 +181,10 @@ class SparkMaxData extends HardwareData {
           _motorTempStatus,
         ),
       ]),
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "CAN",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.can,
             label: formatBoolAsString(faults?.can),
           ),
@@ -191,7 +194,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "escEEPROM",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.escEeprom,
             label: formatBoolAsString(faults?.escEeprom),
           ),
@@ -201,7 +204,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "Firmware",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.firmware,
             label: formatBoolAsString(faults?.firmware),
           ),
@@ -211,7 +214,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "Gate Driver",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.gateDriver,
             label: formatBoolAsString(faults?.gateDriver),
           ),
@@ -221,7 +224,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "Motor Type",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.motorType,
             label: formatBoolAsString(faults?.motorType),
           ),
@@ -231,7 +234,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "Raw Bits",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.rawBits,
             label: formatBoolAsString(faults?.rawBits),
           ),
@@ -241,7 +244,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "Sensor",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.sensor,
             label: formatBoolAsString(faults?.sensor),
           ),
@@ -251,7 +254,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "Temperature",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.temperature,
             label: formatBoolAsString(faults?.temperature),
           ),
@@ -261,7 +264,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "Other",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.other,
             label: formatBoolAsString(faults?.other),
           ),
@@ -270,10 +273,10 @@ class SparkMaxData extends HardwareData {
               : (faults!.other ? Status.error : Status.ok),
         ),
       ], title: "Faults"),
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Brownout",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: warnings?.brownout,
             label: formatBoolAsString(warnings?.brownout),
           ),
@@ -283,7 +286,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "escEEPROM",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: warnings?.escEeprom,
             label: formatBoolAsString(warnings?.escEeprom),
           ),
@@ -293,7 +296,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "extEEPROM",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: warnings?.extEeprom,
             label: formatBoolAsString(warnings?.extEeprom),
           ),
@@ -303,7 +306,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "Has Reset",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: warnings?.hasReset,
             label: formatBoolAsString(warnings?.hasReset),
           ),
@@ -313,7 +316,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "Overcurrent",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: warnings?.overcurrent,
             label: formatBoolAsString(warnings?.overcurrent),
           ),
@@ -323,7 +326,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "Raw Bits",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: warnings?.rawBits,
             label: formatBoolAsString(warnings?.rawBits),
           ),
@@ -333,7 +336,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "Sensor",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: warnings?.sensor,
             label: formatBoolAsString(warnings?.sensor),
           ),
@@ -343,7 +346,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "Stall",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: warnings?.stall,
             label: formatBoolAsString(warnings?.stall),
           ),
@@ -353,7 +356,7 @@ class SparkMaxData extends HardwareData {
         ),
         InspectorProperty(
           "Other",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: warnings?.other,
             label: formatBoolAsString(warnings?.other),
           ),

@@ -11,8 +11,10 @@ import 'package:status_display/data/talonfx_data.dart';
 import 'package:status_display/inspector.dart';
 import 'package:status_display/subsystems_display.dart';
 import 'package:status_display/utils/formating.dart';
+import 'package:status_display/widgets/common_widgets.dart';
 import 'package:status_display/widgets/inspectable.dart';
 import 'package:status_display/widgets/inspector_widgets.dart';
+import 'package:status_display/widgets/status_table.dart';
 
 abstract class SubsystemData extends InspectableData {
   bool initialized;
@@ -46,18 +48,15 @@ abstract class SubsystemData extends InspectableData {
 
   List<Widget> getBasicDetails() {
     return [
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Subsystem Status",
-          InspectorStatusIndicator.status(
-            status: status,
-            label: status.toString(),
-          ),
+          SmallStatusIndicator.status(status: status, label: status.toString()),
           null,
         ),
         InspectorProperty(
           "Initialized",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: initialized,
             label: formatBoolAsString(initialized),
           ),

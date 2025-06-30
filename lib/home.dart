@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:status_display/data/theme_data.dart';
 import 'package:status_display/extra_info.dart';
 import 'package:status_display/inspector.dart';
 import 'package:status_display/iso_display.dart';
@@ -9,7 +10,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final borderSide = Divider.createBorderSide(context);
+    final borderSide = majorBorder;
 
     return Row(
       children: [

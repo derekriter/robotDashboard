@@ -3,6 +3,9 @@ import 'package:status_display/data/hardware_data.dart';
 import 'package:status_display/data/status.dart';
 import 'package:status_display/utils/formating.dart';
 import 'package:status_display/widgets/inspector_widgets.dart';
+import 'package:status_display/widgets/status_table.dart';
+
+import '../widgets/common_widgets.dart';
 
 class LimelightData extends HardwareData {
   bool? serverRunning;
@@ -53,14 +56,14 @@ class LimelightData extends HardwareData {
   @override
   List<Widget> getAdvancedDetails() {
     return [
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Firmware",
           InspectorText(formatStringAsString(firmwareVersion)),
           _firmwareVersionStatus,
         ),
       ]),
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Pipeline",
           InspectorText(formatIntAsString(pipeline)),
@@ -68,7 +71,7 @@ class LimelightData extends HardwareData {
         ),
         InspectorProperty(
           "Server Running",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: serverRunning,
             label: formatBoolAsString(serverRunning),
           ),
@@ -76,7 +79,7 @@ class LimelightData extends HardwareData {
         ),
         InspectorProperty(
           "AprilTag Recognition Running",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: aprilTagRecognitionRunning,
             label: formatBoolAsString(aprilTagRecognitionRunning),
           ),
@@ -84,7 +87,7 @@ class LimelightData extends HardwareData {
         ),
         InspectorProperty(
           "Pose Estimation Running",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: poseEstimationRunning,
             label: formatBoolAsString(poseEstimationRunning),
           ),

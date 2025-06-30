@@ -21,3 +21,7 @@ final bodyMedium = themeData.textTheme.bodyMedium!.copyWith(
 final titleMedium = themeData.textTheme.titleMedium!.copyWith(
   color: themeData.colorScheme.onSecondaryContainer,
 );
+final majorBorder = BorderSide(
+  color: themeData.colorScheme.outlineVariant,
+  width: 1,
+);

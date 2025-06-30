@@ -3,6 +3,7 @@ import 'package:status_display/data/hardware_data.dart';
 import 'package:status_display/data/status.dart';
 import 'package:status_display/utils/formating.dart';
 import 'package:status_display/widgets/inspector_widgets.dart';
+import 'package:status_display/widgets/status_table.dart';
 
 class NavXData extends HardwareData {
   String? firmwareVersion;
@@ -48,14 +49,14 @@ class NavXData extends HardwareData {
   @override
   List<Widget> getAdvancedDetails() {
     return [
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Firmware",
           InspectorText(formatStringAsString(firmwareVersion)),
           _firmwareVersionStatus,
         ),
       ]),
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Pitch",
           InspectorText(formatDegreesAsString(pitch)),

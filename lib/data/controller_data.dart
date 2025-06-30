@@ -1,8 +1,10 @@
 import 'package:status_display/data/status.dart';
 import 'package:status_display/inspector.dart';
 import 'package:status_display/utils/formating.dart';
+import 'package:status_display/widgets/common_widgets.dart';
 import 'package:status_display/widgets/inspectable.dart';
 import 'package:status_display/widgets/inspector_widgets.dart';
+import 'package:status_display/widgets/status_table.dart';
 
 class ControllerData extends InspectableData {
   final String name;
@@ -27,10 +29,10 @@ class ControllerData extends InspectableData {
     return InspectionData(
       targetName: "$name (Controller)",
       properties: [
-        InspectorPropertyList([
+        StatusTable([
           InspectorProperty(
             "Controller Status",
-            InspectorStatusIndicator.status(
+            SmallStatusIndicator.status(
               status: status,
               label: status.toString(),
             ),
@@ -39,7 +41,7 @@ class ControllerData extends InspectableData {
           InspectorProperty("Port", InspectorText(port.toString()), portStatus),
           InspectorProperty(
             "Connected",
-            InspectorStatusIndicator.bool(
+            SmallStatusIndicator.bool(
               boolean: connected,
               label: formatBoolAsString(connected),
             ),

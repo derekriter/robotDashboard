@@ -4,8 +4,9 @@ import 'package:status_display/data/app_state.dart';
 import 'package:status_display/data/theme_data.dart';
 import 'package:status_display/utils/formating.dart';
 import 'package:status_display/widgets/autogrid.dart';
+import 'package:status_display/widgets/common_widgets.dart';
 import 'package:status_display/widgets/fading_scroll.dart';
-import 'package:status_display/widgets/status_indicator.dart';
+import 'package:status_display/widgets/status_table.dart';
 
 class ExtraInfoWidget extends StatelessWidget {
   const ExtraInfoWidget({super.key});
@@ -19,12 +20,7 @@ class ExtraInfoWidget extends StatelessWidget {
       fadePercentage: 0.25,
       padding: EdgeInsets.all(25),
       children: [
-        Container(
-          decoration: BoxDecoration(
-            color: themeData.colorScheme.secondaryContainer,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          padding: EdgeInsets.all(8),
+        ContainerCard(
           child: Column(
             children: [
               AutoGrid(
@@ -32,55 +28,39 @@ class ExtraInfoWidget extends StatelessWidget {
                 rowSpacing: 0,
                 columnSpacing: 7,
                 children: [
-                  StatusIndicator.status(
+                  SmallStatusIndicator.status(
                     status: robotData.netTables,
-                    indicatorSize: 15,
-                    indicatorRadius: 4,
                     label: "Net Tables",
-                    labelStyle: bodySmall,
                     showBackground: true,
                   ),
-                  StatusIndicator.bool(
+                  SmallStatusIndicator.bool(
                     boolean: robotData.comms,
-                    indicatorSize: 15,
-                    indicatorRadius: 4,
                     label: "Comms",
-                    labelStyle: bodySmall,
                     showBackground: true,
                   ),
-                  StatusIndicator.bool(
+                  SmallStatusIndicator.bool(
                     boolean: robotData.robotCode,
-                    indicatorSize: 15,
-                    indicatorRadius: 4,
                     label: "Robot Code",
-                    labelStyle: bodySmall,
                     showBackground: true,
                   ),
                 ],
               ),
-              Divider(
-                color: themeData.colorScheme.onSecondaryContainer,
-                thickness: 0.25,
-              ),
+              CustomDivider(),
               AutoGrid(
                 crossAxisCount: 2,
                 rowSpacing: 0,
                 columnSpacing: 7,
                 children: [
-                  StatusIndicator.alliance(
+                  SmallStatusIndicator.alliance(
                     alliance: robotData.alliance,
-                    indicatorSize: 15,
-                    indicatorRadius: 4,
-                    label: "Alliance - ${robotData.alliance?.name ?? "None"}",
-                    labelStyle: bodySmall,
+                    label:
+                        "Alliance - ${formatStringAsString(robotData.alliance?.name)}",
                     showBackground: true,
                   ),
-                  StatusIndicator.robotMode(
+                  SmallStatusIndicator.robotMode(
                     robotMode: robotData.mode,
-                    indicatorSize: 15,
-                    indicatorRadius: 4,
-                    label: "Mode - ${robotData.mode?.name ?? "None"}",
-                    labelStyle: bodySmall,
+                    label:
+                        "Mode - ${formatStringAsString(robotData.mode?.name)}",
                     showBackground: true,
                   ),
                 ],
@@ -89,71 +69,41 @@ class ExtraInfoWidget extends StatelessWidget {
           ),
         ),
         SizedBox(height: 10),
-        Container(
-          decoration: BoxDecoration(
-            color: themeData.colorScheme.secondaryContainer,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 1),
-          child: IntrinsicHeight(
-            child: Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    children:
-                        {
-                          "Battery Voltage": robotData.batteryVoltageStatus,
-                          "CAN Usage %": robotData.canUsageStatus,
-                          "Robot CPU %": robotData.robotCpuUsageStatus,
-                          "Robot RAM %": robotData.robotRamUsageStatus,
-                        }.entries.map((entry) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 7),
-                            child: StatusIndicator.status(
-                              status: entry.value,
-                              indicatorSize: 15,
-                              indicatorRadius: 4,
-                              label: entry.key,
-                              labelStyle: bodySmall,
-                            ),
-                          );
-                        }).toList(),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 7),
-                  child: VerticalDivider(
-                    color: themeData.colorScheme.onSecondaryContainer,
-                    thickness: 0.25,
-                  ),
-                ),
-                Expanded(
-                  child: Column(
-                    children:
-                        [
-                          formatVoltageAsString(robotData.batteryVoltage),
-                          formatPercentageAsString(robotData.canUsage),
-                          formatPercentageAsString(robotData.robotCpuUsage),
-                          formatPercentageAsString(robotData.robotRamUsage),
-                        ].map((label) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 7),
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                label,
-                                softWrap: false,
-                                overflow: TextOverflow.fade,
-                                style: bodySmall,
-                              ),
-                            ),
-                          );
-                        }).toList(),
-                  ),
-                ),
-              ],
+        ContainerCard(
+          child: StatusTable([
+            StatusTableEntry(
+              FadingText("Battery Voltage", style: bodySmall),
+              SmallStatusIndicator.status(
+                status: robotData.batteryVoltageStatus,
+                label: formatVoltageAsString(robotData.batteryVoltage),
+              ),
+              robotData.batteryVoltageStatus,
             ),
-          ),
+            StatusTableEntry(
+              FadingText("CAN Usage", style: bodySmall),
+              SmallStatusIndicator.status(
+                status: robotData.canUsageStatus,
+                label: formatPercentageAsString(robotData.canUsage),
+              ),
+              robotData.canUsageStatus,
+            ),
+            StatusTableEntry(
+              FadingText("Robot CPU Usage", style: bodySmall),
+              SmallStatusIndicator.status(
+                status: robotData.robotCpuUsageStatus,
+                label: formatPercentageAsString(robotData.robotCpuUsage),
+              ),
+              robotData.robotCpuUsageStatus,
+            ),
+            StatusTableEntry(
+              FadingText("Robot RAM Usage", style: bodySmall),
+              SmallStatusIndicator.status(
+                status: robotData.robotRamUsageStatus,
+                label: formatPercentageAsString(robotData.robotRamUsage),
+              ),
+              robotData.robotRamUsageStatus,
+            ),
+          ]),
         ),
       ],
     );

@@ -3,6 +3,9 @@ import 'package:status_display/data/hardware_data.dart';
 import 'package:status_display/data/status.dart';
 import 'package:status_display/utils/formating.dart';
 import 'package:status_display/widgets/inspector_widgets.dart';
+import 'package:status_display/widgets/status_table.dart';
+
+import '../widgets/common_widgets.dart';
 
 class TalonFXFaults {
   bool bootDuringEnable,
@@ -142,7 +145,7 @@ class TalonFXData extends HardwareData {
   @override
   List<Widget> getAdvancedDetails() {
     return [
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty("CAN ID", InspectorText(canID.toString()), null),
         InspectorProperty(
           "Firmware",
@@ -150,7 +153,7 @@ class TalonFXData extends HardwareData {
           _firmwareVersionStatus,
         ),
       ]),
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Output Voltage",
           InspectorText(formatVoltageAsString(outputVoltage)),
@@ -177,10 +180,10 @@ class TalonFXData extends HardwareData {
           _deviceTempStatus,
         ),
       ]),
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Boot During Enable",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.bootDuringEnable,
             label: formatBoolAsString(faults?.bootDuringEnable),
           ),
@@ -190,7 +193,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Bridge Brownout",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.bridgeBrownout,
             label: formatBoolAsString(faults?.bridgeBrownout),
           ),
@@ -200,7 +203,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Device Temperature",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.deviceTemp,
             label: formatBoolAsString(faults?.deviceTemp),
           ),
@@ -210,7 +213,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Forward Hard Limit",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.forwardHardLimit,
             label: formatBoolAsString(faults?.forwardHardLimit),
           ),
@@ -220,7 +223,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Forward Soft Limit",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.forwardSoftLimit,
             label: formatBoolAsString(faults?.forwardSoftLimit),
           ),
@@ -230,7 +233,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Fusion Sensor Out Of Sync",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.fusionSensorOutOfSync,
             label: formatBoolAsString(faults?.fusionSensorOutOfSync),
           ),
@@ -240,7 +243,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Hardware",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.hardware,
             label: formatBoolAsString(faults?.hardware),
           ),
@@ -250,7 +253,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Missing Differential",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.missingDifferential,
             label: formatBoolAsString(faults?.missingDifferential),
           ),
@@ -260,7 +263,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Missing Hard Limit Remote",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.missingHardLimitRemote,
             label: formatBoolAsString(faults?.missingHardLimitRemote),
           ),
@@ -270,7 +273,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Oversupply Voltage",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.oversupplyVoltage,
             label: formatBoolAsString(faults?.oversupplyVoltage),
           ),
@@ -280,7 +283,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Processor Temperature",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.processorTemp,
             label: formatBoolAsString(faults?.processorTemp),
           ),
@@ -290,7 +293,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Remote Sensor Invalid Data",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.remoteSensorInvalidData,
             label: formatBoolAsString(faults?.remoteSensorInvalidData),
           ),
@@ -300,7 +303,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Remote Sensor Position Overflow",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.remoteSensorPositionOverflow,
             label: formatBoolAsString(faults?.remoteSensorPositionOverflow),
           ),
@@ -312,7 +315,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Remote Sensor Reset",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.remoteSensorReset,
             label: formatBoolAsString(faults?.remoteSensorReset),
           ),
@@ -322,7 +325,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Reverse Hard Limit",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.reverseHardLimit,
             label: formatBoolAsString(faults?.reverseHardLimit),
           ),
@@ -332,7 +335,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Reverse Soft Limit",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.reverseSoftLimit,
             label: formatBoolAsString(faults?.reverseSoftLimit),
           ),
@@ -342,7 +345,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Static Brake Disabled",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.staticBrakeDisabled,
             label: formatBoolAsString(faults?.staticBrakeDisabled),
           ),
@@ -352,7 +355,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Stator Overcurrent",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.statorOvercurrent,
             label: formatBoolAsString(faults?.statorOvercurrent),
           ),
@@ -362,7 +365,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Supply Overcurrent",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.supplyOvercurrent,
             label: formatBoolAsString(faults?.supplyOvercurrent),
           ),
@@ -372,7 +375,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Undervoltage",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.undervoltage,
             label: formatBoolAsString(faults?.undervoltage),
           ),
@@ -382,7 +385,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Unlicensed Feature In Use",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.unlicensedFeatureInUse,
             label: formatBoolAsString(faults?.unlicensedFeatureInUse),
           ),
@@ -392,7 +395,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Unstable Supply Voltage",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.unstableSupplyVoltage,
             label: formatBoolAsString(faults?.unstableSupplyVoltage),
           ),
@@ -402,7 +405,7 @@ class TalonFXData extends HardwareData {
         ),
         InspectorProperty(
           "Unlicensed Fused CANcoder Feature",
-          InspectorStatusIndicator.bool(
+          SmallStatusIndicator.bool(
             boolean: faults?.unlicensedFusedCANcoderFeature,
             label: formatBoolAsString(faults?.unlicensedFusedCANcoderFeature),
           ),

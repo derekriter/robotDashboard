@@ -3,6 +3,7 @@ import 'package:status_display/data/hardware_data.dart';
 import 'package:status_display/data/status.dart';
 import 'package:status_display/utils/formating.dart';
 import 'package:status_display/widgets/inspector_widgets.dart';
+import 'package:status_display/widgets/status_table.dart';
 
 enum FusionToFMode {
   long("Long"),
@@ -67,7 +68,7 @@ class FusionToFData extends HardwareData {
   @override
   List<Widget> getAdvancedDetails() {
     return [
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty("CAN ID", InspectorText(canID.toString()), null),
         InspectorProperty(
           "Firmware",
@@ -75,7 +76,7 @@ class FusionToFData extends HardwareData {
           _firmwareVersionStatus,
         ),
       ]),
-      InspectorPropertyList([
+      StatusTable([
         InspectorProperty(
           "Mode",
           InspectorText(formatStringAsString(mode?.toString())),
