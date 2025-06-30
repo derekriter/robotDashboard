@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="svg31" width="103.72" height="128" version="1.1" viewBox="0 0 103.72 128" xmlns="http://www.w3.org/2000/svg">
+ <desc id="desc1">iso.dxf - scale = 154.277843, origin = (0.000000, 0.000000), method = auto</desc>
+ <g id="g31" transform="matrix(.1459 0 0 .1459 47.419 7.0034)" fill="none" stroke="#000">
+  <path id="topTop" d="m185.06 236.67-297.57-171.8 194.49-112.29 297.57 171.8z"/>
+  <path id="topFront" d="m-118.34 74.968 297.57 171.8v224.58l-297.57-171.8z"/>
+  <path id="bottomTop" d="m-124.17 309.65 297.57 171.8-194.49 112.29-297.57-171.8z"/>
+  <path id="bottomFront" d="m-324.5 432.04 297.57 171.8v224.58l-297.57-171.8z"/>
+  <path id="side" d="m385.38 134.48v462.63l-400.65 231.32v-224.58l206.16-119.02v-238.05z"/>
+ </g>
+</svg>

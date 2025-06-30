@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 103.72043 128"
+   width="103.72043"
+   height="127.99999"
+   version="1.1"
+   id="svg31"
+   sodipodi:docname="iso.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview31"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="8.3170036"
+     inkscape:cx="48.935893"
+     inkscape:cy="57.652975"
+     inkscape:window-width="3440"
+     inkscape:window-height="1369"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg31" />
+  <desc
+     id="desc1">iso.dxf - scale = 154.277843, origin = (0.000000, 0.000000), method = auto</desc>
+  <defs
+     id="defs4">
+    <marker
+       id="DistanceX"
+       orient="auto"
+       refX="0"
+       refY="0"
+       style="overflow:visible">
+      <path
+         d="M 3,-3 -3,3 M 0,-5 V 5"
+         style="stroke:#000000;stroke-width:0.5"
+         id="path1" />
+    </marker>
+    <pattern
+       id="Hatch"
+       patternUnits="userSpaceOnUse"
+       width="8"
+       height="8"
+       x="0"
+       y="0">
+      <path
+         d="M8 4 l-4,4"
+         stroke="#000000"
+         stroke-width="0.25"
+         linecap="square"
+         id="path2" />
+      <path
+         d="M6 2 l-4,4"
+         stroke="#000000"
+         stroke-width="0.25"
+         linecap="square"
+         id="path3" />
+      <path
+         d="M4 0 l-4,4"
+         stroke="#000000"
+         stroke-width="0.25"
+         linecap="square"
+         id="path4" />
+    </pattern>
+    <symbol
+       id="*Model_Space" />
+    <symbol
+       id="*Paper_Space" />
+    <symbol
+       id="*Paper_Space0" />
+  </defs>
+  <g
+     id="g31"
+     transform="matrix(0.14590341,0,0,0.14590341,47.418608,7.0033637)">
+    <path
+       d="M 185.05915,236.67191 -112.51298,64.86857 81.981122,-47.42265 379.55325,124.38069 Z"
+       style="fill:none;stroke:#000000"
+       id="topTop" />
+    <path
+       d="M -118.34395,74.96811 179.22817,246.77146 V 471.35387 L -118.34395,299.55057 Z"
+       style="fill:none;stroke:#000000"
+       id="topFront" />
+    <path
+       d="M -124.17493,309.65007 173.3972,481.45347 -21.096902,593.74467 -318.66903,421.94127 Z"
+       style="fill:none;stroke:#000000"
+       id="bottomTop" />
+    <path
+       d="m -324.5,432.04087 297.572124,171.8033 v 224.5825 L -324.5,656.62327 Z"
+       style="fill:none;stroke:#000000"
+       id="bottomFront" />
+    <path
+       d="M 385.38422,134.48023 V 597.11117 L -15.265929,828.42667 V 603.84417 L 190.89012,484.81997 V 246.77146 Z"
+       style="fill:none;stroke:#000000"
+       id="side" />
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="svg25" width="128" height="126.06" version="1.1" viewBox="0 0 128 126.06" xmlns="http://www.w3.org/2000/svg">
+ <desc id="desc1">NineSegment.dxf - scale = 25.400000, origin = (0.000000, 0.000000), method = file</desc>
+ <g id="g26" transform="matrix(1.3703 0 0 1.3703 64 -1473.4)" fill="none" stroke="#000">
+  <path id="Swerve" d="m29.237 1086.2-28.277-10.292v43.991z"/>
+  <path id="Controllers" d="m-29.237 1086.2 28.277-10.292v43.991z"/>
+  <path id="LEDs" d="m-45.754 1113.5 15.046-26.06 28.277 33.699z"/>
+  <path id="Limelights" d="m-40.862 1145-5.2254-29.635 43.323 7.639z"/>
+  <path id="AlgaeRemover" d="m-16.85 1166-23.052-19.343 38.098-21.996z"/>
+  <path id="Climber" d="m15.046 1166.7h-30.092l15.046-41.338z"/>
+  <path id="Intake" d="m39.902 1146.7-23.052 19.343-15.046-41.338z"/>
+  <path id="Shooter" d="m46.087 1115.4-5.2254 29.635-38.098-21.996z"/>
+  <path id="Elevator" d="m30.708 1087.4 15.046 26.06-43.323 7.6391z"/>
+ </g>
+</svg>
