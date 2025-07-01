@@ -360,12 +360,19 @@ class ControllersData extends SubsystemData {
   }) : super(name: "Controllers");
 
   @override
-  Status get status {
+  Status get status => Status.maxPriority(driver1.status, driver2.status);
+
+  @override
+  List<Widget> getBasicDetails() {
     return [
-      basicStatus,
-      driver1.status,
-      driver2.status,
-    ].reduce(Status.maxPriority);
+      StatusTable([
+        InspectorProperty(
+          "Subsystem Status",
+          SmallStatusIndicator.status(status: status, label: status.toString()),
+          null,
+        ),
+      ]),
+    ];
   }
 
   @override

@@ -23,12 +23,12 @@ class ExtraInfoWidget extends StatelessWidget {
           children: [
             StatusTable([
               StatusTableEntry(
-                FadingText("Net Tables", style: bodySmall),
+                FadingText("Driver Station", style: bodySmall),
                 SmallStatusIndicator.status(
-                  status: robotData.netTables,
-                  label: robotData.netTables.toString(),
+                  status: robotData.driverStation,
+                  label: robotData.driverStation.toString(),
                 ),
-                robotData.netTables,
+                robotData.driverStation,
               ),
               StatusTableEntry(
                 FadingText("Comms", style: bodySmall),

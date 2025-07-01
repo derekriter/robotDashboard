@@ -167,7 +167,7 @@ class AppState extends ChangeNotifier {
       driver1: ControllerData(name: "Driver 1", port: 0, connected: false),
       driver2: ControllerData(name: "Driver 2", port: 1, connected: false),
     ),
-    netTables: Status.error,
+    driverStation: Status.error,
   );
   RobotData get robotData => _robotData;
 
