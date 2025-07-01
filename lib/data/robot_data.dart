@@ -82,6 +82,32 @@ class RobotData {
     this.robotRamUsage,
   });
 
+  Status get commsStatus =>
+      comms == null ? Status.warning : (comms! ? Status.ok : Status.error);
+
+  Status get robotCodeStatus =>
+      robotCode == null
+          ? Status.warning
+          : (robotCode! ? Status.ok : Status.error);
+
+  Status get modeStatus {
+    switch (mode) {
+      case null:
+        return Status.warning;
+      case RobotMode.disabled:
+        return Status.warning;
+      case RobotMode.eStopped:
+        return Status.error;
+      default:
+        return Status.ok;
+    }
+  }
+
+  Status get allianceStatus =>
+      alliance == null
+          ? Status.warning
+          : (alliance == Alliance.unknown ? Status.error : Status.ok);
+
   Status get batteryVoltageStatus {
     if (batteryVoltage == null) {
       return Status.warning;

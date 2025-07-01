@@ -62,7 +62,10 @@ class HomePage extends StatelessWidget {
                             decoration: BoxDecoration(
                               border: Border(left: borderSide),
                             ),
-                            child: ExtraInfoWidget(),
+                            child: Align(
+                              alignment: Alignment.topCenter,
+                              child: ExtraInfoWidget(),
+                            ),
                           ),
                         ),
                       ],
