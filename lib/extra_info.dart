@@ -64,7 +64,7 @@ class ExtraInfoWidget extends StatelessWidget {
                 robotData.modeStatus,
               ),
               StatusTableEntry(
-                FadingText("Aliance", style: bodySmall),
+                FadingText("Alliance", style: bodySmall),
                 SmallStatusIndicator.alliance(
                   alliance: robotData.alliance,
                   label: robotData.alliance?.toString() ?? "Unknown",
@@ -75,33 +75,33 @@ class ExtraInfoWidget extends StatelessWidget {
             StatusTable([
               StatusTableEntry(
                 FadingText("Battery Voltage", style: bodySmall),
-                SmallStatusIndicator.status(
-                  status: robotData.batteryVoltageStatus,
-                  label: formatVoltageAsString(robotData.batteryVoltage),
+                FadingText(
+                  formatVoltageAsString(robotData.batteryVoltage),
+                  style: bodySmall,
                 ),
                 robotData.batteryVoltageStatus,
               ),
               StatusTableEntry(
                 FadingText("CAN Usage", style: bodySmall),
-                SmallStatusIndicator.status(
-                  status: robotData.canUsageStatus,
-                  label: formatPercentageAsString(robotData.canUsage),
+                FadingText(
+                  formatPercentageAsString(robotData.canUsage),
+                  style: bodySmall,
                 ),
                 robotData.canUsageStatus,
               ),
               StatusTableEntry(
                 FadingText("Robot CPU Usage", style: bodySmall),
-                SmallStatusIndicator.status(
-                  status: robotData.robotCpuUsageStatus,
-                  label: formatPercentageAsString(robotData.robotCpuUsage),
+                FadingText(
+                  formatPercentageAsString(robotData.robotCpuUsage),
+                  style: bodySmall,
                 ),
                 robotData.robotCpuUsageStatus,
               ),
               StatusTableEntry(
                 FadingText("Robot RAM Usage", style: bodySmall),
-                SmallStatusIndicator.status(
-                  status: robotData.robotRamUsageStatus,
-                  label: formatPercentageAsString(robotData.robotRamUsage),
+                FadingText(
+                  formatPercentageAsString(robotData.robotRamUsage),
+                  style: bodySmall,
                 ),
                 robotData.robotRamUsageStatus,
               ),

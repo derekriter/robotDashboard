@@ -27,7 +27,7 @@ enum RobotMode {
   auton("Autonomous", Colors.green),
   teleop("Teleoperated", Colors.blue),
   test("Test", Colors.orange),
-  eStopped("E-Stopped", Colors.yellow);
+  eStopped("E-Stopped", Colors.red);
 
   final String name;
   final Color color;
@@ -93,7 +93,6 @@ class RobotData {
   Status get modeStatus {
     switch (mode) {
       case null:
-        return Status.warning;
       case RobotMode.disabled:
         return Status.warning;
       case RobotMode.eStopped:

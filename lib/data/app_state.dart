@@ -168,7 +168,6 @@ class AppState extends ChangeNotifier {
       driver2: ControllerData(name: "Driver 2", port: 1, connected: false),
     ),
     netTables: Status.error,
-    mode: RobotMode.eStopped,
   );
   RobotData get robotData => _robotData;
 
