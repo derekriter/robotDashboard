@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 767.09 515.34"
+   version="1.1"
+   id="svg18"
+   sodipodi:docname="xbox.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview18"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.6012605"
+     inkscape:cx="408.11598"
+     inkscape:cy="276.34479"
+     inkscape:window-width="3440"
+     inkscape:window-height="1369"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg18" />
+  <defs
+     id="defs1" />
+  <title
+     id="title5">xbox controller icon</title>
+  <path
+     d="m 576.89,666.35 c -0.67,-40 9.61,-77.88 22.25,-115.23 21.69,-64.08 44,-127.94 65.87,-192 3.32,-9.73 9.52,-16.23 18.73,-19.9 13.10822,-5.19941 26.2766,-10.21967 39.57162,-14.85107 C 746.3775,316.33379 769.82457,309.46911 794,304.87 c 11.18,-2.13 20,0.86 27.34,9.45 15.79,18.44 32.07,36.46 47.53,55.17 9.29,11.24 19.82,16.68 35,16.32 37.8,-0.9 75.62,-0.9 113.46,0 14.59,0.32 24.75,-5 33.67,-15.77 14.52,-17.5 30.06,-34.16 44.35,-51.83 9.61,-11.89 20.55,-16.09 35.6,-12.7 36.24,8.15 71.28,19.91 105.66,33.76 9.51,3.83 15.57,10.68 18.94,20.67 24.32,72.08 49.35,143.92 73.26,216.14 11.31,34.15 17,69.47 14.58,105.67 -3,46 -24.75,78.93 -67.52,97.54 -9.1,4 -16.08,3.07 -23.39,-4 -30.88,-29.80667 -61.9933,-59.37667 -93.34,-88.71 -9.6755,-9.07213 -20.0399,-17.38036 -31,-24.85 -12.31,-8.32 -26.57,-11.39 -41.52,-11.37 -84.08,0.0667 -168.16333,0.0667 -252.25,0 -25.07,-0.06 -45.6,10.09 -63.27,26.74 -32.54,30.67 -64.43,62 -97.21,92.44 -17.38,16.12 -14.07,17.73 -39.09,5 -37.15,-18.91 -55.17,-51 -57.84,-92 -0.37,-5.44 -0.07,-10.82 -0.07,-16.19 z"
+     transform="translate(-576.77,-267.62)"
+     id="Body"
+     inkscape:label="Body"
+     sodipodi:nodetypes="ccccsccccccccccccccccccccccc" />
+  <path
+     d="m 117.05001,55.623188 c 2.26,-12.79 7.38,-21.52 18.94,-26.89 31.52484,-14.76264 65.29794,-24.1455603 99.92,-27.76000029 5,-0.52 10.48,1.23999999 15.47,2.79999999 3.91825,1.21357 7.56509,3.17282 10.74,5.77 13.84,11.5700003 29.78,13.0000003 47.15,12.7400003 56.23,-0.74 112.47,-0.19 168.71,-0.45 4.5,0 10,-1.21 13.34,-3.91 20.31,-16.2900003 42.18,-19.8800003 67.44,-13.3200003 25.54,6.6200003 50.88,13.2900003 74.52,25.2200003 11.56,5.83 15,11.16 16.76,25 -22.29,-7.12 -44.47,-14.59 -66.9,-21.21 -11.22,-3.31 -22.87,-5.24 -34.39,-7.47 -13.55,-2.62 -24.68,2.1 -33.58,12.26 -16.16,18.46 -32.58,36.71 -48.12,55.68 -7.63,9.300002 -15.94,13.250002 -28.2,13.000002 -37.56,-0.74 -75.14,-0.51 -112.71,0 -9.89,0.13 -16.93,-3 -23.18,-10.470002 -15.1,-18 -31.14,-35.26 -45.91,-53.53 -12.58,-15.55 -27.87,-21.11 -46.83,-15.66 -28.68,8.25 -57.22,17 -85.82,25.58 -2.19,0.69 -4.32,1.55 -7.35,2.62 z"
+     id="UpperBody"
+     inkscape:label="UpperBody"
+     style="display:inline"
+     sodipodi:nodetypes="cccccccccccccccccccccc" />
+  <path
+     class="b"
+     d="m 383.5591,34.950812 c 5.26298,-0.0055 10.41452,1.516005 14.83,4.38 -5.30229,0.536857 -10.35737,2.511177 -14.62,5.71 0,0 -7.12,-5.93 -14.94,-5.78 4.39448,-2.820835 9.50807,-4.317072 14.73,-4.31 z m -27.54,27.83 c -0.0201,-7.576468 3.04096,-14.835527 8.48,-20.11 1.54,0.31 6.9,1.76 12.26,7.82 0,0 -12.75,10.85 -15.88,28.08 -3.17807,-4.651445 -4.87248,-10.156536 -4.86,-15.79 z m 27.54,27.84 c -8.11922,-0.01426 -15.81272,-3.633871 -21,-9.88 0.62,-2.24 3.92,-9.78 21.25,-24.38 0,0 18.6,15.49 20.52,24.74 -5.19655,6.06242 -12.7852,9.548015 -20.77,9.54 z m 23,-12.59 c -0.7,-4 -3.7,-15.57 -16,-27.23 0,0 4.76,-6 12,-8.18 9.60776,9.338786 11.28237,24.163263 4,35.41 z"
+     id="Logo"
+     inkscape:label="Logo"
+     style="fill-opacity:1;stroke:none;stroke-opacity:1;fill:#888888"
+     sodipodi:nodetypes="cccccccccccccccccccc" />
+  <path
+     class="c"
+     d="m 846.66,563.61 c -8.83,0 -16.93,-0.11 -25,0 -7,0.13 -10.45,-3 -10.3,-10.12 0.1,-4.85 -0.11,-9.7 0,-14.55 0.2,-8.58 2.49,-10.87 11,-11 7.82,-0.1 15.65,0 24.29,0 0,-8.76 -0.09,-16.6 0,-24.44 0.13,-8.51 4.13,-12.05 12.42,-11.58 4.29,0.25 8.6,0.12 12.91,0.13 6.92,0 10.34,3.53 10.35,10.41 0,8.1 0,16.2 0,25.49 8.5,0 16.28,0 24,0 8.8,0.08 11.23,2.5 11.58,11.42 0.12,3.06 -0.05,6.13 0.08,9.19 0.53,12.89 -1.49,15 -14.67,15 h -21 c 0,8.4 0.07,16.22 0,24 -0.11,9.14 -2.88,11.9 -11.82,12.09 -23.87,0.52 -23.87,0.52 -23.88,-23.09 z"
+     id="Dpad"
+     inkscape:label="Dpad"
+     transform="translate(-576.77,-267.62)"
+     style="display:inline;fill:#888888;fill-opacity:1" />
+  <g
+     id="g2">
+    <ellipse
+       style="display:inline;fill:#888880;fill-opacity:1;stroke-width:2.86071;stroke-linecap:round;stroke-linejoin:round"
+       id="LeftJoystickWell"
+       cx="191.58266"
+       cy="155.55922"
+       inkscape:label="LeftJoystickWell"
+       rx="59.327"
+       ry="59.326794" />
+    <circle
+       style="display:inline;fill:#000000;fill-opacity:1;stroke-width:2.07259;stroke-linecap:round;stroke-linejoin:round"
+       id="LeftJoystick"
+       cx="191.58266"
+       cy="155.55922"
+       r="42.982437"
+       inkscape:label="LeftJoystick" />
+  </g>
+  <g
+     id="g1">
+    <ellipse
+       style="display:inline;fill:#888880;fill-opacity:1;stroke-width:2.86071;stroke-linecap:round;stroke-linejoin:round"
+       id="RightJoystickWell"
+       cx="478.73093"
+       cy="278.33035"
+       inkscape:label="RightJoystickWell"
+       rx="59.327"
+       ry="59.326794" />
+    <ellipse
+       style="display:inline;fill:#000000;fill-opacity:1;stroke-width:2.07259;stroke-linecap:round;stroke-linejoin:round"
+       id="RightJoystick"
+       cx="478.73093"
+       cy="278.33035"
+       inkscape:label="RightJoystick"
+       rx="42.981998"
+       ry="42.982437" />
+  </g>
+  <circle
+     style="display:inline;fill:#888888;fill-opacity:1;stroke-width:1.53154;stroke-linecap:round;stroke-linejoin:round"
+     id="X"
+     cx="535.63501"
+     cy="155.53999"
+     r="24.102451"
+     inkscape:label="X" />
+  <circle
+     style="display:inline;fill:#888888;fill-opacity:1;stroke-width:1.53154;stroke-linecap:round;stroke-linejoin:round"
+     id="Y"
+     cx="586.41418"
+     cy="104.75436"
+     r="24.102451"
+     inkscape:label="Y" />
+  <circle
+     style="display:inline;fill:#888888;fill-opacity:1;stroke-width:1.53154;stroke-linecap:round;stroke-linejoin:round"
+     id="B"
+     cx="637.12164"
+     cy="155.55194"
+     r="24.102451"
+     inkscape:label="B" />
+  <ellipse
+     style="display:inline;fill:#888888;fill-opacity:1;stroke-width:1.53154;stroke-linecap:round;stroke-linejoin:round"
+     id="A"
+     cx="586.39929"
+     cy="206.41515"
+     inkscape:label="A"
+     rx="24.101999"
+     ry="24.102451" />
+  <metadata
+     id="metadata20">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>xbox controller icon</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:status_display/data/theme_data.dart';
 import 'package:status_display/extra_info.dart';
 import 'package:status_display/inspector.dart';
-import 'package:status_display/iso_display.dart';
+import 'package:status_display/robot_display.dart';
 import 'package:status_display/subsystems_display.dart';
 
 class HomePage extends StatelessWidget {
@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
             decoration: BoxDecoration(border: Border(right: borderSide)),
             padding: EdgeInsets.all(25),
             constraints: BoxConstraints.expand(),
-            child: IsoDisplayWidget(),
+            child: RobotDisplayWidget(),
           ),
         ),
         Expanded(

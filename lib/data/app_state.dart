@@ -11,11 +11,13 @@ import 'package:status_display/data/status.dart';
 import 'package:status_display/data/subsystem_data.dart';
 import 'package:status_display/data/talonfx_data.dart';
 import 'package:status_display/inspector.dart';
-import 'package:status_display/widgets/svg.dart';
+import 'package:status_display/widgets/modifiable_svg.dart';
+import 'package:status_display/widgets/nine_segment_svg.dart';
+import 'package:status_display/widgets/xbox_svg.dart';
 
 class AppState extends ChangeNotifier {
   AppState() {
-    NineSegmentDisplay.load(
+    NineSegSVG.load(
       _robotData.swerve.status,
       _robotData.elev.status,
       _robotData.shooter.status,
@@ -29,12 +31,32 @@ class AppState extends ChangeNotifier {
       _nineSeg = val;
       notifyListeners();
     });
+
+    XboxSVG.load(_robotData.controllers.driver1.status).then((val) {
+      _driver1 = val;
+      notifyListeners();
+    });
+
+    XboxSVG.load(_robotData.controllers.driver2.status).then((val) {
+      _driver2 = val;
+      notifyListeners();
+    });
   }
 
-  NineSegmentDisplay? _nineSeg;
+  NineSegSVG? _nineSeg;
   bool get hasNineSeg => _nineSeg != null;
   ModifiableSVG? get nineSeg => _nineSeg;
   bool get isNineSegReady => hasNineSeg && _nineSeg!.hasScalableImage;
+
+  ControllerSVG? _driver1;
+  bool get hasDriver1 => _driver1 != null;
+  ControllerSVG? get driver1 => _driver1;
+  bool get isDriver1Ready => hasDriver1 && _driver1!.hasScalableImage;
+
+  ControllerSVG? _driver2;
+  bool get hasDriver2 => _driver2 != null;
+  ControllerSVG? get driver2 => _driver2;
+  bool get isDriver2Ready => hasDriver2 && _driver2!.hasScalableImage;
 
   final RobotData _robotData = RobotData(
     swerve: SwerveData(
