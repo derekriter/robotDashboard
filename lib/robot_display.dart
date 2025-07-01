@@ -3,6 +3,7 @@ import 'package:jovial_svg/jovial_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:status_display/data/app_state.dart';
 import 'package:status_display/data/theme_data.dart';
+import 'package:status_display/widgets/common_widgets.dart';
 
 class RobotDisplayWidget extends StatelessWidget {
   const RobotDisplayWidget({super.key});
@@ -13,7 +14,7 @@ class RobotDisplayWidget extends StatelessWidget {
 
     late final Widget nineSeg;
     if (!appState.isNineSegReady) {
-      nineSeg = Placeholder();
+      nineSeg = Throbber(size: 40);
     } else {
       nineSeg = ScalableImageWidget(
         si: appState.nineSeg!.scalableImage!,
@@ -23,7 +24,7 @@ class RobotDisplayWidget extends StatelessWidget {
 
     late final Widget driver1;
     if (!appState.isDriver1Ready) {
-      driver1 = Placeholder();
+      driver1 = Throbber();
     } else {
       driver1 = ScalableImageWidget(
         si: appState.driver1!.scalableImage!,
@@ -33,7 +34,7 @@ class RobotDisplayWidget extends StatelessWidget {
 
     late final Widget driver2;
     if (!appState.isDriver2Ready) {
-      driver2 = Placeholder();
+      driver2 = Throbber();
     } else {
       driver2 = ScalableImageWidget(
         si: appState.driver2!.scalableImage!,

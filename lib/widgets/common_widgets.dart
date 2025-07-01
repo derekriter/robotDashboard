@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:smooth_scroll_multiplatform/smooth_scroll_multiplatform.dart';
 import 'package:status_display/data/theme_data.dart';
 import 'package:status_display/widgets/status_indicator.dart';
@@ -218,4 +219,9 @@ class FadingSingleChildScrollView extends StatelessWidget {
       child: SmoothSingleChildScrollView(padding: padding, child: child),
     );
   }
+}
+
+class Throbber extends SpinKitWave {
+  const Throbber({super.key, super.color = Colors.white, super.size = 20})
+    : super();
 }
