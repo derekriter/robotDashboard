@@ -9,7 +9,6 @@ import 'package:status_display/data/status.dart';
 import 'package:status_display/data/subsystem_data.dart';
 import 'package:status_display/widgets/autogrid.dart';
 import 'package:status_display/widgets/common_widgets.dart';
-import 'package:status_display/widgets/fading_scroll.dart';
 import 'package:status_display/widgets/inspectable.dart';
 
 class SubsystemsDisplayWidget extends StatelessWidget {

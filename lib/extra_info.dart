@@ -4,7 +4,6 @@ import 'package:status_display/data/app_state.dart';
 import 'package:status_display/data/theme_data.dart';
 import 'package:status_display/utils/formating.dart';
 import 'package:status_display/widgets/common_widgets.dart';
-import 'package:status_display/widgets/fading_scroll.dart';
 import 'package:status_display/widgets/status_table.dart';
 
 class ExtraInfoWidget extends StatelessWidget {

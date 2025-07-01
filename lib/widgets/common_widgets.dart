@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_scroll_multiplatform/smooth_scroll_multiplatform.dart';
 import 'package:status_display/data/theme_data.dart';
 import 'package:status_display/widgets/status_indicator.dart';
 
@@ -146,4 +147,75 @@ class ContainerCard extends Container {
 class CustomDivider extends Divider {
   CustomDivider({super.key, super.height, super.indent, super.endIndent})
     : super(color: themeData.colorScheme.onSecondaryContainer, thickness: 0.25);
+}
+
+class SmoothSingleChildScrollView extends StatelessWidget {
+  final EdgeInsetsGeometry? padding;
+  final Widget? child;
+
+  const SmoothSingleChildScrollView({super.key, this.padding, this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    // return WebSmoothScroll(
+    //   controller: _controller,
+    //   scrollSpeed: 1,
+    //   scrollAnimationLength: 200,
+    //   curve: Curves.easeOutCubic,
+    //   child: SingleChildScrollView(
+    //     physics: const NeverScrollableScrollPhysics(),
+    //     controller: _controller,
+    //     padding: padding,
+    //     child: child,
+    //   ),
+    // );
+    return DynMouseScroll(
+      durationMS: 150,
+      scrollSpeed: 1,
+      animationCurve: Curves.easeOutCubic,
+      builder:
+          (_, controller, physics) => SingleChildScrollView(
+            controller: controller,
+            physics: physics,
+            padding: padding,
+            child: child,
+          ),
+    );
+  }
+}
+
+class FadingSingleChildScrollView extends StatelessWidget {
+  final Color? fadeColor;
+  final double fadePercentage;
+  final Widget child;
+  final EdgeInsets? padding;
+
+  const FadingSingleChildScrollView({
+    super.key,
+    this.fadeColor,
+    this.fadePercentage = 0.1,
+    this.padding,
+    required this.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ShaderMask(
+      shaderCallback: (rect) {
+        return LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.center,
+          colors: [
+            fadeColor ?? Colors.white,
+            Colors.transparent,
+            Colors.transparent,
+          ],
+          tileMode: TileMode.mirror,
+          stops: [0, fadePercentage, 1],
+        ).createShader(rect);
+      },
+      blendMode: fadeColor == null ? BlendMode.dstOut : BlendMode.srcOver,
+      child: SmoothSingleChildScrollView(padding: padding, child: child),
+    );
+  }
 }
