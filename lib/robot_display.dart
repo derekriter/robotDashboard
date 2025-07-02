@@ -43,20 +43,6 @@ class RobotDisplayWidget extends StatelessWidget {
       );
     }
 
-    final driver1Data =
-        appState.robotData.controllers.driver1.getInspectionData();
-    driver1Data.targetName = formatSubsystemFieldAsString(
-      appState.robotData.controllers.name,
-      driver1Data.targetName,
-    );
-
-    final driver2Data =
-        appState.robotData.controllers.driver2.getInspectionData();
-    driver2Data.targetName = formatSubsystemFieldAsString(
-      appState.robotData.controllers.name,
-      driver2Data.targetName,
-    );
-
     return Column(
       spacing: 25,
       children: [
@@ -79,7 +65,16 @@ class RobotDisplayWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: InspectableField(
-                    data: driver1Data,
+                    data: () {
+                      final driver1Data =
+                          appState.robotData.controllers.driver1
+                              .getInspectionData();
+                      return driver1Data
+                        ..targetName = formatSubsystemFieldAsString(
+                          appState.robotData.controllers.name,
+                          driver1Data.targetName,
+                        );
+                    },
                     borderRadius: 10,
                     child: Padding(
                       padding: const EdgeInsets.all(10),
@@ -89,7 +84,16 @@ class RobotDisplayWidget extends StatelessWidget {
                 ),
                 Expanded(
                   child: InspectableField(
-                    data: driver2Data,
+                    data: () {
+                      final driver2Data =
+                          appState.robotData.controllers.driver2
+                              .getInspectionData();
+                      return driver2Data
+                        ..targetName = formatSubsystemFieldAsString(
+                          appState.robotData.controllers.name,
+                          driver2Data.targetName,
+                        );
+                    },
                     borderRadius: 10,
                     child: Padding(
                       padding: const EdgeInsets.all(10),

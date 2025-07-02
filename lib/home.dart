@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:status_display/data/app_state.dart';
 import 'package:status_display/data/theme_data.dart';
 import 'package:status_display/extra_info.dart';
 import 'package:status_display/inspector.dart';
 import 'package:status_display/robot_display.dart';
 import 'package:status_display/subsystems_display.dart';
+import 'package:status_display/widgets/common_widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,8 +15,16 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final borderSide = majorBorder;
 
+    final appState = context.watch<AppState>();
+
     return Row(
       children: [
+        ElevatedButton(
+          onPressed: () {
+            appState.setDriversConnected(true);
+          },
+          child: FadingText("Test", style: titleMedium),
+        ),
         Expanded(
           flex: 2,
           child: Container(

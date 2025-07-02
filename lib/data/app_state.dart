@@ -46,7 +46,7 @@ class AppState extends ChangeNotifier {
 
   NineSegSVG? _nineSeg;
   bool get hasNineSeg => _nineSeg != null;
-  ModifiableSVG? get nineSeg => _nineSeg;
+  NineSegSVG? get nineSeg => _nineSeg;
   bool get isNineSegReady => hasNineSeg && _nineSeg!.hasScalableImage;
 
   ControllerSVG? _driver1;
@@ -109,11 +109,25 @@ class AppState extends ChangeNotifier {
   );
   RobotData get robotData => _robotData;
 
-  InspectionData? _inspectionData;
+  InspectionData Function()? _inspectionData;
   bool get hasInspectionData => _inspectionData != null;
-  InspectionData? get inspectionData => _inspectionData;
-  void inspect(InspectionData data) {
+  InspectionData Function()? get inspectionData => _inspectionData;
+  void inspect(InspectionData Function() data) {
     _inspectionData = data;
+    notifyListeners();
+  }
+
+  void setDriversConnected(bool connected) {
+    _robotData.controllers.driver1.connected = connected;
+    _robotData.controllers.driver2.connected = connected;
+
+    _nineSeg?.setControllersStatus(robotData.controllers.status);
+    _nineSeg?.build();
+    _driver1?.setStatus(robotData.controllers.driver1.status);
+    _driver1?.build();
+    _driver2?.setStatus(robotData.controllers.driver2.status);
+    _driver2?.build();
+
     notifyListeners();
   }
 }

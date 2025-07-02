@@ -23,7 +23,7 @@ class InspectorWidget extends StatelessWidget {
       );
     }
 
-    InspectionData data = appState.inspectionData!;
+    InspectionData data = appState.inspectionData!();
 
     return FadingSingleChildScrollView(
       padding: EdgeInsets.all(25),

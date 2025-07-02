@@ -5,7 +5,7 @@ import 'package:status_display/inspector.dart';
 
 class InspectableField extends StatelessWidget {
   final Widget child;
-  final InspectionData data;
+  final InspectionData Function() data;
   final double borderRadius;
 
   const InspectableField({

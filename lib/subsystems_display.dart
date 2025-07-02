@@ -108,14 +108,15 @@ class SubsystemCard extends StatelessWidget {
             columnSpacing: 7,
             children:
                 details.map((detail) {
-                  final data = detail.data.getInspectionData();
-                  data.targetName = formatSubsystemFieldAsString(
-                    subsystem.name,
-                    data.targetName,
-                  );
-
                   return InspectableField(
-                    data: data,
+                    data: () {
+                      final data = detail.data.getInspectionData();
+                      return data
+                        ..targetName = formatSubsystemFieldAsString(
+                          subsystem.name,
+                          data.targetName,
+                        );
+                    },
                     borderRadius: 4,
                     child: SmallStatusIndicator.status(
                       status: detail.status,
@@ -133,7 +134,7 @@ class SubsystemCard extends StatelessWidget {
       child: Column(
         children: [
           InspectableField(
-            data: subsystem.getInspectionData(),
+            data: () => subsystem.getInspectionData(),
             borderRadius: 8,
             child: LargeStatusIndicator.status(
               status: subsystem.status,
