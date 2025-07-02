@@ -10,7 +10,7 @@ import 'package:status_display/widgets/status_table.dart';
 abstract class HardwareData extends InspectableData {
   final String name; //eg. FL Drive
   final String modelName; //eg. SparkMax
-  bool connected;
+  bool? connected;
 
   HardwareData({
     required this.name,
@@ -20,7 +20,10 @@ abstract class HardwareData extends InspectableData {
 
   Status get status;
 
-  Status get connectedStatus => connected ? Status.ok : Status.error;
+  Status get connectedStatus =>
+      connected == null
+          ? Status.warning
+          : (connected! ? Status.ok : Status.error);
 
   Status get basicStatus => connectedStatus;
 

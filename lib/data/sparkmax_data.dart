@@ -93,8 +93,8 @@ class SparkMaxData extends HardwareData {
 
   SparkMaxData({
     required super.name,
-    required super.connected,
     required this.canID,
+    super.connected,
     this.outputVoltage,
     this.outputCurrent,
     this.relativePosition,

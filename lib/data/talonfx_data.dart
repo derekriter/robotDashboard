@@ -98,8 +98,8 @@ class TalonFXData extends HardwareData {
 
   TalonFXData({
     required super.name,
-    required super.connected,
     required this.canID,
+    super.connected,
     this.faults,
     this.deviceTemp,
     this.outputVoltage,

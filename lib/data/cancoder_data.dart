@@ -58,8 +58,8 @@ class CANCoderData extends HardwareData {
 
   CANCoderData({
     required super.name,
-    required super.connected,
     required this.canID,
+    super.connected,
     this.absolutePosition,
     this.faults,
     this.magnetHealth,

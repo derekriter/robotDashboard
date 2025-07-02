@@ -17,19 +17,18 @@ import 'package:status_display/widgets/inspector_widgets.dart';
 import 'package:status_display/widgets/status_table.dart';
 
 abstract class SubsystemData extends InspectableData {
-  bool initialized;
   String name;
+  bool? initialized;
   String? runningCommand;
 
-  SubsystemData({
-    required this.initialized,
-    required this.name,
-    required this.runningCommand,
-  });
+  SubsystemData({required this.name, this.initialized, this.runningCommand});
 
   Status get status;
 
-  Status get initilizedStatus => initialized ? Status.ok : Status.error;
+  Status get initilizedStatus =>
+      initialized == null
+          ? Status.warning
+          : (initialized! ? Status.ok : Status.error);
   Status get runningCommandStatus =>
       runningCommand == null ? Status.warning : Status.ok;
 
@@ -84,7 +83,7 @@ class SwerveData extends SubsystemData {
   NavXData navX;
 
   SwerveData({
-    required super.initialized,
+    super.initialized,
     super.runningCommand,
     required this.frontLeftDrive,
     required this.frontLeftAngle,
@@ -168,11 +167,8 @@ class SwerveData extends SubsystemData {
 class ElevData extends SubsystemData {
   TalonFXData elevMotor;
 
-  ElevData({
-    required super.initialized,
-    super.runningCommand,
-    required this.elevMotor,
-  }) : super(name: "Elevator");
+  ElevData({super.initialized, super.runningCommand, required this.elevMotor})
+    : super(name: "Elevator");
 
   @override
   Status get status => Status.maxPriority(basicStatus, elevMotor.status);
@@ -188,7 +184,7 @@ class ShooterData extends SubsystemData {
   FusionToFData branchSensor, coralSensor, frontSensor, backSensor;
 
   ShooterData({
-    required super.initialized,
+    super.initialized,
     super.runningCommand,
     required this.leftMotor,
     required this.rightMotor,
@@ -229,7 +225,7 @@ class IntakeData extends SubsystemData {
   IntakeManagerData manager;
 
   IntakeData({
-    required super.initialized,
+    super.initialized,
     super.runningCommand,
     required this.intakeMotor,
     required this.manager,
@@ -257,7 +253,7 @@ class ClimberData extends SubsystemData {
   TalonFXData leverMotor, clampMotor;
 
   ClimberData({
-    required super.initialized,
+    super.initialized,
     super.runningCommand,
     required this.leverMotor,
     required this.clampMotor,
@@ -285,7 +281,7 @@ class AlgaeRemData extends SubsystemData {
   SparkMaxData algaeRemMotor;
 
   AlgaeRemData({
-    required super.initialized,
+    super.initialized,
     super.runningCommand,
     required this.algaeRemMotor,
   }) : super(name: "Algae Remover");
@@ -304,7 +300,7 @@ class VisionData extends SubsystemData {
   LimelightManagerData manager;
 
   VisionData({
-    required super.initialized,
+    super.initialized,
     super.runningCommand,
     required this.reefLL,
     required this.funnelLL,
@@ -334,11 +330,8 @@ class VisionData extends SubsystemData {
 class LEDData extends SubsystemData {
   LEDManagerData manager;
 
-  LEDData({
-    required super.initialized,
-    super.runningCommand,
-    required this.manager,
-  }) : super(name: "LEDs");
+  LEDData({super.initialized, super.runningCommand, required this.manager})
+    : super(name: "LEDs");
 
   @override
   Status get status => Status.maxPriority(basicStatus, manager.status);
@@ -353,7 +346,7 @@ class ControllersData extends SubsystemData {
   ControllerData driver1, driver2;
 
   ControllersData({
-    required super.initialized,
+    super.initialized,
     super.runningCommand,
     required this.driver1,
     required this.driver2,

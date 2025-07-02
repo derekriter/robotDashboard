@@ -25,18 +25,16 @@ enum RunningStatus {
 abstract class CommandData extends InspectableData {
   final String name;
   final List<String> requires;
-  RunningStatus running;
+  RunningStatus? running;
 
-  CommandData({
-    required this.name,
-    required this.requires,
-    required this.running,
-  });
+  CommandData({required this.name, required this.requires, this.running});
 
   Status get status;
 
   Status get runningStatus {
     switch (running) {
+      case null:
+        return Status.warning;
       case RunningStatus.running:
         return Status.ok;
       case RunningStatus.finished:
@@ -93,7 +91,7 @@ class IntakeManagerData extends CommandData {
   bool? runningIntake;
 
   IntakeManagerData({
-    required super.running,
+    super.running,
     this.elevAtBottom,
     this.hasCoral,
     this.runningIntake,
@@ -153,7 +151,7 @@ class LimelightManagerData extends CommandData {
   bool? funnelEstimated;
 
   LimelightManagerData({
-    required super.running,
+    super.running,
     this.reefEstimated,
     this.funnelEstimated,
   }) : super(name: "LimelightManager", requires: ["Reef LL", "Funnel LL"]);
@@ -206,7 +204,7 @@ class LEDManagerData extends CommandData {
   bool? alignedToBranch;
 
   LEDManagerData({
-    required super.running,
+    super.running,
     this.currentPattern,
     this.disabled,
     this.teleop,

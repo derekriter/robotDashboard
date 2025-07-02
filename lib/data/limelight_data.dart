@@ -17,7 +17,7 @@ class LimelightData extends HardwareData {
   LimelightData({
     required super.name,
     required super.modelName, //allow different versions of limelights
-    required super.connected,
+    super.connected,
     this.serverRunning,
     this.aprilTagRecognitionRunning,
     this.poseEstimationRunning,

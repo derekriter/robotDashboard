@@ -32,8 +32,8 @@ class FusionToFData extends HardwareData {
 
   FusionToFData({
     required super.name,
-    required super.connected,
     required this.canID,
+    super.connected,
     this.mode,
     this.firmwareVersion,
     this.measuredDist,

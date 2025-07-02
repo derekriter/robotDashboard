@@ -16,7 +16,7 @@ class NavXData extends HardwareData {
 
   NavXData({
     required super.name,
-    required super.connected,
+    super.connected,
     this.firmwareVersion,
     this.pitch,
     this.roll,
