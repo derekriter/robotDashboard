@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:jovial_svg/jovial_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:status_display/data/app_state.dart';
-import 'package:status_display/data/theme_data.dart';
+import 'package:status_display/utils/formating.dart';
 import 'package:status_display/widgets/common_widgets.dart';
+import 'package:status_display/widgets/inspectable.dart';
 
 class RobotDisplayWidget extends StatelessWidget {
   const RobotDisplayWidget({super.key});
@@ -42,6 +43,20 @@ class RobotDisplayWidget extends StatelessWidget {
       );
     }
 
+    final driver1Data =
+        appState.robotData.controllers.driver1.getInspectionData();
+    driver1Data.targetName = formatSubsystemFieldAsString(
+      appState.robotData.controllers.name,
+      driver1Data.targetName,
+    );
+
+    final driver2Data =
+        appState.robotData.controllers.driver2.getInspectionData();
+    driver2Data.targetName = formatSubsystemFieldAsString(
+      appState.robotData.controllers.name,
+      driver2Data.targetName,
+    );
+
     return Column(
       spacing: 25,
       children: [
@@ -50,20 +65,39 @@ class RobotDisplayWidget extends StatelessWidget {
           flex: 1,
           child: Container(
             decoration: BoxDecoration(
-              color: Color.alphaBlend(
-                appState.robotData.controllers.status.color.withAlpha(83),
-                themeData.colorScheme.surface,
-              ),
+              // color: Color.alphaBlend(
+              //   appState.robotData.controllers.status.color.withAlpha(83),
+              //   themeData.colorScheme.surface,
+              // ),
               border: Border.all(
                 color: appState.robotData.controllers.status.color,
                 width: 8,
               ),
               borderRadius: BorderRadius.circular(20),
             ),
-            padding: EdgeInsets.all(20 - 8),
             child: Row(
-              spacing: 25,
-              children: [Expanded(child: driver1), Expanded(child: driver2)],
+              children: [
+                Expanded(
+                  child: InspectableField(
+                    data: driver1Data,
+                    borderRadius: 10,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: driver1,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: InspectableField(
+                    data: driver2Data,
+                    borderRadius: 10,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: driver2,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),

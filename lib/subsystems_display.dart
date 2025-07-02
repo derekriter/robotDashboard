@@ -7,6 +7,7 @@ import 'package:status_display/data/controller_data.dart';
 import 'package:status_display/data/hardware_data.dart';
 import 'package:status_display/data/status.dart';
 import 'package:status_display/data/subsystem_data.dart';
+import 'package:status_display/utils/formating.dart';
 import 'package:status_display/widgets/autogrid.dart';
 import 'package:status_display/widgets/common_widgets.dart';
 import 'package:status_display/widgets/inspectable.dart';
@@ -108,7 +109,10 @@ class SubsystemCard extends StatelessWidget {
             children:
                 details.map((detail) {
                   final data = detail.data.getInspectionData();
-                  data.targetName = "${subsystem.name} > ${data.targetName}";
+                  data.targetName = formatSubsystemFieldAsString(
+                    subsystem.name,
+                    data.targetName,
+                  );
 
                   return InspectableField(
                     data: data,

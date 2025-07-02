@@ -13,6 +13,7 @@ import 'package:status_display/data/talonfx_data.dart';
 import 'package:status_display/inspector.dart';
 import 'package:status_display/widgets/modifiable_svg.dart';
 import 'package:status_display/widgets/nine_segment_svg.dart';
+import 'package:status_display/widgets/playstation_svg.dart';
 import 'package:status_display/widgets/xbox_svg.dart';
 
 class AppState extends ChangeNotifier {
@@ -37,7 +38,7 @@ class AppState extends ChangeNotifier {
       notifyListeners();
     });
 
-    XboxSVG.load(_robotData.controllers.driver2.status).then((val) {
+    PlaystationSVG.load(_robotData.controllers.driver2.status).then((val) {
       _driver2 = val;
       notifyListeners();
     });
@@ -186,8 +187,8 @@ class AppState extends ChangeNotifier {
     ),
     controllers: ControllersData(
       initialized: false,
-      driver1: ControllerData(name: "Driver 1", port: 0, connected: false),
-      driver2: ControllerData(name: "Driver 2", port: 1, connected: false),
+      driver1: ControllerData(name: "Driver 1", port: 0),
+      driver2: ControllerData(name: "Driver 2", port: 1),
     ),
     driverStation: Status.error,
   );

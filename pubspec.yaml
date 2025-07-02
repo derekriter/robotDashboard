@@ -66,6 +66,7 @@ flutter:
     - assets/isos/isoOptimized.svg
     - assets/isos/nineSegmentOptimized.svg
     - assets/controllers/xboxOptimized.svg
+    - assets/controllers/psOptimized.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

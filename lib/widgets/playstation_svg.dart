@@ -1,40 +1,46 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:jovial_svg/dom.dart';
 import 'package:status_display/data/status.dart';
 import 'package:status_display/widgets/modifiable_svg.dart';
 
-class XboxSVG extends ControllerSVG {
-  static const _imagePath = "assets/controllers/xboxOptimized.svg";
+class PlaystationSVG extends ControllerSVG {
+  static const _imagePath = "assets/controllers/psOptimized.svg";
   static const _primary = [
-    "Body",
-    "UpperBody",
-    "RightJoystick",
     "LeftJoystick",
+    "RightJoystick",
+    "LeftBody",
+    "RightBody",
+    "Top",
+    "LeftTrigger",
+    "RightTrigger",
   ];
   static const _secondary = [
-    "A",
-    "B",
     "X",
-    "Y",
-    "RightJoystickWell",
-    "LeftJoystickWell",
-    "Dpad",
-    "Logo",
+    "Circle",
+    "Triangle",
+    "Square",
+    "DpadUp",
+    "DpadDown",
+    "DpadLeft",
+    "DpadRight",
+    "TopLeftSpecial",
+    "TopRightSpecial",
+    "MainBody",
   ];
 
-  XboxSVG._(super.svg) : super.fromDomManager();
+  PlaystationSVG._(super.svg) : super.fromDomManager();
 
-  static Future<XboxSVG> load(Status status) async {
+  static Future<PlaystationSVG> load(Status status) async {
     final str = await rootBundle.loadString(_imagePath);
 
-    final xbox = XboxSVG._(SvgDOMManager.fromString(str));
+    final ps = PlaystationSVG._(SvgDOMManager.fromString(str));
 
-    xbox._verifyIDs();
-    xbox.setStatus(status);
-    xbox.build();
+    ps._verifyIDs();
+    ps.setStatus(status);
+    ps.build();
 
-    return xbox;
+    return ps;
   }
 
   void _verifyIDs() {
@@ -42,7 +48,7 @@ class XboxSVG extends ControllerSVG {
 
     for (var id in [..._primary, ..._secondary]) {
       if (!existingIDs.containsKey(id)) {
-        throw FormatException("Malformed XboxSVG, missing id $id");
+        throw FormatException("Malformed PlaystationSVG, missing id $id");
       }
     }
   }

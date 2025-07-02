@@ -57,3 +57,7 @@ String formatRotsPerMinAsString(double? rpm, {int precision = 6}) {
 String formatCelsiusAsString(double? c, {int precision = 1}) {
   return c == null ? "Unknown" : "${c.toStringAsFixed(precision)} °C";
 }
+
+String formatSubsystemFieldAsString(String subsystemName, String fieldName) {
+  return "$subsystemName > $fieldName";
+}
