@@ -51,7 +51,7 @@ class RobotData {
   LEDData leds;
   ControllersData controllers;
 
-  Status driverStation;
+  Status netTables;
   bool? comms;
   bool? robotCode;
   Alliance? alliance;
@@ -71,7 +71,7 @@ class RobotData {
     required this.vision,
     required this.leds,
     required this.controllers,
-    required this.driverStation,
+    required this.netTables,
     this.comms,
     this.robotCode,
     this.alliance,

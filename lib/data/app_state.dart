@@ -11,6 +11,7 @@ import 'package:status_display/data/status.dart';
 import 'package:status_display/data/subsystem_data.dart';
 import 'package:status_display/data/talonfx_data.dart';
 import 'package:status_display/inspector.dart';
+import 'package:status_display/nt4/nt4_client.dart';
 import 'package:status_display/widgets/modifiable_svg.dart';
 import 'package:status_display/widgets/nine_segment_svg.dart';
 import 'package:status_display/widgets/playstation_svg.dart';
@@ -105,7 +106,7 @@ class AppState extends ChangeNotifier {
       driver1: ControllerData(name: "Driver 1", port: 0),
       driver2: ControllerData(name: "Driver 2", port: 1),
     ),
-    driverStation: Status.error,
+    netTables: Status.error,
   );
   RobotData get robotData => _robotData;
 
@@ -116,6 +117,18 @@ class AppState extends ChangeNotifier {
     _inspectionData = data;
     notifyListeners();
   }
+
+  final NT4Client _client = NT4Client(
+    serverBaseAddress: "127.0.0.1",
+    clientName: "Robot Dashboard",
+    onConnect: () {
+      print("Connected to NT");
+    },
+    onDisconnect: () {
+      print("Disconnected from NT");
+    },
+  );
+  NT4Client get client => _client;
 
   void setDriversConnected(bool connected) {
     _robotData.controllers.driver1.connected = connected;
